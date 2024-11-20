@@ -54,32 +54,27 @@ public class UserService {
 
     @Autowired
     UserRepository userRepository;
-
-    // Obter todos os usuários
+ 
     public List<UserModel> getAllUsers() {
         return userRepository.findAll();
     }
 
-    // Obter usuário pelo ID
     public UserModel getUserById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
-    // Criar novo usuário
     public UserModel createUser(UserModel user) {
         return userRepository.save(user);
     }
 
-    // Atualizar usuário existente
     public UserModel updateUser(Long id, UserModel updatedUser) {
         if (userRepository.existsById(id)) {
             updatedUser.setId(id);
             return userRepository.save(updatedUser);
         }
-        return null; // Caso o usuário não exista
+        return null;
     }
 
-    // Deletar usuário
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }

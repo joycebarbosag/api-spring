@@ -17,10 +17,16 @@ public class UserModel{
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     private String username;
     private String password;
     private int age;
+    
+    //setter deve substituir
+	public void setId(Long id2) {
+		// TODO Auto-generated method stub
+		
+	}
        
 
 }
